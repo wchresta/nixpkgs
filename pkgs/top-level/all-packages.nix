@@ -8728,7 +8728,9 @@ in
 
   idris = idrisPackages.with-packages [ idrisPackages.base ] ;
 
-  idris2 = callPackage ../development/compilers/idris2 { };
+  idris2Packages = dontRecurseIntoAttrs (callPackage ../development/idris2-modules { });
+
+  idris2 = idris2Packages.idris2 ;
 
   intel-graphics-compiler = callPackage ../development/compilers/intel-graphics-compiler { };
 
